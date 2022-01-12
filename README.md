@@ -1,4 +1,4 @@
-Preview - 
+Preview - https://bogatyrenko-ievgenii.github.io/tasty-food-landing/
 
 It's a landinig page wich contains: tabs.
 Plan to create: Fetch API, Slider, Countdown modules
