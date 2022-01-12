@@ -1,0 +1,39 @@
+.header {
+    min-height: 70px;
+    background-color: $mainColor;
+    position: relative;
+    &__title {
+        margin: 0;
+        display: inline-block;
+        padding-top: 17px;
+        padding-left: 20px;
+    }
+    &__logo {
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        img {
+            height: 40px;
+            transition: transform .1s;
+            &:hover{
+                transform: rotate(360deg);
+            }
+            &:active{
+                transform: scale(.8);
+            }
+        }
+    }
+    .nav {
+        display: inline-flex;
+        justify-content: space-between;
+        vertical-align: top;
+        margin: 28px 0px 0 10%;        
+        width: 400px;
+        a {
+            text-decoration: none;
+            font-weight: 700;
+            color: $mainLight;
+        }
+    }
+}
