@@ -1,0 +1,14 @@
+@mixin divider {
+    margin: 0 auto;
+    width: 40vw;
+    height: 1px;
+    border: 1px solid $mainDark;
+    border-radius: 50%;
+}
+
+@mixin cardsLayout {
+    display: grid; 
+    grid-template-columns: repeat(4, minmax(150px, 300px));
+    grid-auto-rows: 200px;
+    gap: 20px;
+}

@@ -14,13 +14,19 @@ body {
 }
 
 
+
 @import 'variables/variables';
 @import 'variables/mixins';
+
+.divider {
+    @include divider;
+}
 
 
 @import 'blocks/header';
 @import 'blocks/sidePanel';
 @import 'blocks/tabs';
+@import 'blocks/offer';
 
 
 @import 'media/media.scss'

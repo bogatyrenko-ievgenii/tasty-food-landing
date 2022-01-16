@@ -1,0 +1,20 @@
+.offer {
+    margin-top: 100px;
+    min-height: 500px;
+    background-color: #eee;
+    padding: 3%;
+    &__title {
+        text-align: center;
+        margin: 50px; 
+    }
+    &__food {
+        @include cardsLayout;
+    }
+    &__drinks {
+        @include cardsLayout;
+    }
+    &__card {
+        box-shadow: 1px 1px 2px $mainDark;
+    }
+
+}
