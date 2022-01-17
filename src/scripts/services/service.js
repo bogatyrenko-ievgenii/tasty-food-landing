@@ -13,21 +13,15 @@ async function fetchData(URI) {
   return await getData.json();
 }
 
-const getImages = (name, imgArr = []) => {
 
-  fetchData(`${URI}${name}`)
-    .then(res =>
-      res.hits.forEach(hit => {
-        imgArr.push(hit.largeImageURL);
 
-        return hit.largeImageURL;
-      }),
-    )
+export const getImages = name => {
+
+  return fetchData(`${URI}${name}`)
+    .then(res => res.hits)
     .catch(error => {
       throw new Error(`Something went wrong because - ${error}`);
     });
 
-  return imgArr;
 };
 
-export default getImages;

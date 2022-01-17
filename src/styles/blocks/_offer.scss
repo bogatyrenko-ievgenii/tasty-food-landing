@@ -1,3 +1,5 @@
+
+
 .offer {
     margin-top: 100px;
     min-height: 500px;
@@ -7,14 +9,70 @@
         text-align: center;
         margin: 50px; 
     }
-    &__food {
+    .wrapper {
         @include cardsLayout;
+        padding-top: 40px;
+    }
+    &__food {
+        &_title {
+            color: $mainDark;
+            padding-top: 70px;
+        }
     }
     &__drinks {
-        @include cardsLayout;
+        // @include cardsLayout;
     }
     &__card {
+        position: relative;
         box-shadow: 1px 1px 2px $mainDark;
+        cursor: pointer;
+        background: url('../images/spinner.svg') center no-repeat;
+        transition: all .5s;
+        overflow: hidden;
+        &_img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all .2s;
+        }
+        &-active {
+            position: absolute;
+            transform: translateX(-100%);
+        }
+
+        &_descr {
+            padding: 15px;
+            height: 100%;
+            width: 100%;
+            background-color: green;
+            color: $mainLight;
+            transition: all .2s;
+            h3 {
+                margin: 0;
+                padding: 15px 0;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            &_button {
+                display: block;
+                margin: 2px auto;
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 16px;
+                transition: all .3s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &:hover {
+            transform: translate3d(-5px, -5px, -5px);
+        }
     }
 
 }
+

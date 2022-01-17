@@ -49,8 +49,11 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
     "core-js": "^3.6.5",
+    "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
+    "module": "^1.2.5",
     "normalize.css": "^8.0.1"
   }
 }
