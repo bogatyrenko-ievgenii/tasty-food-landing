@@ -8,11 +8,11 @@ export default class Card {
 
     render = () => {
         return (
-            `<div class="${this.className}" data-product="${this.title}">
+            `<div class="${this.className}">
                 <img src="${this.image}" class="offer__card_img" alt="beautiful image">
-                <div class="offer__card_descr">
+                <div class="offer__card_descr" data-product="${this.title}">
                     <h3>${this.title}</h3>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nihil reprehenderit aspernatur minima unde hic facere. Unde nulla deleniti placeat, aliquid dolorum voluptatum quo, magnam aut distinctio quod repellendus expedita.</div>
+                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nihil reprehenderit aspernatur minima unde hic facere. Unde nulla deleniti placeat, aliquid dolorum voluptatum quo.</div>
                     <button class="offer__card_descr_button" type="submit">Order</button>
                 </div>
             </div>`

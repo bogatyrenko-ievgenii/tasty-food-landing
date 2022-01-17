@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }))
     })
 
-    const onOrder = (event, name) => {
+    const onOrderBtn = (event, name) => {
         event.preventDefault();
         console.log(name);
     }
@@ -42,20 +42,19 @@ window.addEventListener('DOMContentLoaded', () => {
         let target = event.target;
         let parent = target.parentElement;
 
-
         document.querySelectorAll('.offer__card').forEach((card, i) => {
 
             if(card === parent && !target.classList.contains('offer__card-active') && target.nodeName === 'IMG') {
                 target.classList.add('offer__card-active');
-                // order.forEach().addEventListener('click', () => onOrder(event, parent.dataset));
-            } else if (target !== order){
+                // order.forEach().addEventListener('click', () => onOrderBtn(event, parent.dataset));
+            } else if (target === order[i]) {
+                console.log(parent.dataset.product);
+            } else {
                 card.firstElementChild.classList.remove('offer__card-active');
-                // order.removeEventListenerAll('click', () => onOrder(event, parent.dataset));
+                // order.removeEventListenerAll('click', () => onOrderBtn(event, parent.dataset));
             }
 
-            if (target === order) {
-                console.log(parent.dataset);
-            }
+ 
         })
     })
 })
