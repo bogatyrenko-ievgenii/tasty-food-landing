@@ -45,6 +45,7 @@
             background-color: green;
             color: $mainLight;
             transition: all .2s;
+            position: relative;
             h3 {
                 margin: 0;
                 padding: 15px 0;
@@ -52,8 +53,10 @@
                 text-transform: uppercase;
             }
             &_button {
-                display: block;
-                margin: 2px auto;
+                position: absolute;
+                bottom: 5px;
+                left: 50%;
+                transform: translateX(-50%);
                 background-color: #4CAF50; /* Green */
                 border: none;
                 color: white;
@@ -63,7 +66,7 @@
                 font-size: 16px;
                 transition: all .3s;
                 &:hover {
-                    transform: scale(1.1);
+                    transform: scale(1.1) translateX(-50%);
                 }
             }
         }
