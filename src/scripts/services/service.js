@@ -1,6 +1,6 @@
 import { APIKEY } from './apikey';
 
-export let URI = `https://pixabay.com/api/?image_type=photo&orientation=vertical&per_page=4&key=${APIKEY}&q=`;
+export let URI = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&per_page=4&key=${APIKEY}&q=`;
 
 
 async function fetchData(URI) {
