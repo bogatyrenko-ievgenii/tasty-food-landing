@@ -1,7 +1,7 @@
 
 import {getImages} from '../services/service';
 import Card from './card';
-import OrderPopup from '../popup';
+import Popup from '../popup';
 
 const foodArr = ['pizza', 'burger', 'sushi'];
 const foodModificator = ['roasted', 'fried', 'fresh', 'home made'];
@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const onOrderBtn = (event, name) => {
         event.preventDefault();
-        console.log(name);
+        new Popup(name).render();
     }
 
     offer.addEventListener('click', (event) => {
@@ -48,10 +48,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 target.classList.add('offer__card-active');
                 // order.forEach().addEventListener('click', () => onOrderBtn(event, parent.dataset));
             } else if (target === order[i]) {
-                console.log(parent.dataset.product);
+                onOrderBtn(event, parent.dataset.product);
             } else {
                 card.firstElementChild.classList.remove('offer__card-active');
-                // order.removeEventListenerAll('click', () => onOrderBtn(event, parent.dataset));
             }
 
  
