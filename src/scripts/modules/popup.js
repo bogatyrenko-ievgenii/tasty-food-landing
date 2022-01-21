@@ -28,18 +28,6 @@ export default class Popup {
         this.addListeners();
     };
 
-    // newItem = () => {
-    //     const item = document.createElement('li');
-    //     item.classList.add('popup__item');
-    //     item.innerHTML = `<span class="popup__item_name">${this.name}</span>
-    //                     <div class="popup__count">
-    //                         <button type="button" id="decr" class="popup__item_btn popup__item_btn-count">-</button>
-    //                         <span class="popup__item_value">0</span>
-    //                         <button type="button" id="incr" class="popup__item_btn popup__item_btn-count">+</button>
-    //                         <button type="button" id="remove" class="popup__item_btn">Remove</button>
-    //                     <div>`;
-    //     return item;
-    // }
 
     addListeners = () => {
         document
@@ -62,14 +50,6 @@ export default class Popup {
             this.closeModal();
         }       
     };
-
-    // addRefsOnBtns = () => {
-    //     return {
-    //         decr: document.querySelector('#decr'),
-    //         incr: document.querySelector('#incr'),
-    //         remove: document.querySelector('#remove'),
-    //     }
-    // }
 
     closeModal = () => {
         this.parent.classList.remove('popup__active');
