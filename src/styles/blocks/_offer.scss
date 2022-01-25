@@ -5,37 +5,66 @@
     min-height: 500px;
     background-color: #eee;
     padding: 3%;
+
     &__title {
         text-align: center;
         margin: 50px; 
     }
+
     .wrapper {
         @include cardsLayout;
     }
+
     &__food {
         &_title {
             color: $mainDark;
         }
     }
-    &__drinks {
-        // @include cardsLayout;
-    }
+
     &__card {
+        // display: flex;
         position: relative;
-        box-shadow: 1px 1px 2px $mainDark;
         cursor: pointer;
         background: url('../images/spinner.svg') center no-repeat;
-        transition: all .5s;
         overflow: hidden;
+
         &_img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all .2s;
+            margin-bottom: -4px;
         }
-        &-active {
+
+        &_active {
+            transform: translateY(-100%);
+        }
+
+        &_text{
+            user-select: none;
+        }
+
+        &_wrapper {
+            transition: all 0.5s;
+            height: 100%;
+            position: relative;
+        }
+
+        &_button {
             position: absolute;
-            transform: translateX(-100%);
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all .3s;
+            &:hover {
+                transform: scale(1.1) translateX(-50%);
+            }
         }
 
         &_descr {
@@ -44,30 +73,13 @@
             width: 100%;
             background-color: green;
             color: $mainLight;
-            transition: all .2s;
             position: relative;
+
             h3 {
                 margin: 0;
                 padding: 15px 0;
                 text-align: center;
                 text-transform: uppercase;
-            }
-            &_button {
-                position: absolute;
-                bottom: 5px;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: #4CAF50; /* Green */
-                border: none;
-                color: white;
-                padding: 10px 20px;
-                text-align: center;
-                text-decoration: none;
-                font-size: 16px;
-                transition: all .3s;
-                &:hover {
-                    transform: scale(1.1) translateX(-50%);
-                }
             }
         }
         &:hover {

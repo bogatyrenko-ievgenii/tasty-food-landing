@@ -33,6 +33,8 @@ export default class orderItems {
         } else if (id === 'remove') {
             item.remove();
         }
+
+        this.saveInLocalStorge({name: this.name, count: this.count});
     }
 
     saveInLocalStorge = (item) => {
@@ -42,12 +44,14 @@ export default class orderItems {
             newArr.push(item);
             this.serializing(newArr);
         } else {
-            let isIn = arr.some(arrItem => {
+            let isIn = arr.find(arrItem => {
                 return arrItem.name === item.name;
             });
             if (!isIn) {
                 arr.push(item);
                 this.serializing(arr);
+            } else {
+                console.log(isIn);
             }
         }
     }

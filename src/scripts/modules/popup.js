@@ -18,16 +18,24 @@ export default class Popup {
                             </div>`;
         this.parent.append(this.popup);
         const list = document.querySelector('.popup__list');
-        // const shoppingList = JSON.parse(localStorage.getItem('shopping'));
-        // shoppingList.forEach((item, i) => {
-        //     list.append(new orderItems(item.name, item.count, i).render());
-        // });
+
+        this.renderItemsFromLocalStorage(list);
+
         const item = new orderItems(this.name).render();
         list.append(item);
         this.parent.classList.add('popup__active');
         this.addListeners();
     };
 
+    renderItemsFromLocalStorage = (list) => {
+        const shoppingList = JSON.parse(localStorage.getItem('shopping'));
+        if (shoppingList) {
+            shoppingList.forEach((item, i) => {
+                list.append(new orderItems(item.name, item.count, i).render());
+            });
+        }
+
+    }
 
     addListeners = () => {
         document
