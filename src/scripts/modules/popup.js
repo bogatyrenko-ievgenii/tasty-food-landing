@@ -1,13 +1,40 @@
-import orderItems from "./orderItems";
+import orderItem from "./orderItem";
 
 export default class Popup {
     constructor(name) {
         this.name = name;
         this.parent = document.querySelector('body');
         this.popup = null;
+        this.isIn = false;
+        this.index = 0;
     }
 
     render = () => {
+        this.createPopup();
+
+        const list = document.querySelector('.popup__list');
+
+        const items = this.readFromLocal();
+        for (let item in items) {
+            
+            if (item === this.name) {
+                this.isIn = true;
+            }
+            list.append(new orderItem(item, items[item], this.index).render());
+            this.index += 1;
+        }
+
+        if (!this.isIn) {
+            const item = new orderItem(this.name, 1, list.childElementCount).render();
+            list.append(item);
+        }
+
+    
+        this.parent.classList.add('popup__active');
+        this.addListeners();
+    };
+
+    createPopup = () => {
         this.popup = document.createElement('div');
         this.popup.classList.add('popup');
         this.popup.innerHTML = `<div class="popup__wrapper">
@@ -17,24 +44,10 @@ export default class Popup {
                                 </ul>
                             </div>`;
         this.parent.append(this.popup);
-        const list = document.querySelector('.popup__list');
+    }
 
-        this.renderItemsFromLocalStorage(list);
-
-        const item = new orderItems(this.name).render();
-        list.append(item);
-        this.parent.classList.add('popup__active');
-        this.addListeners();
-    };
-
-    renderItemsFromLocalStorage = (list) => {
-        const shoppingList = JSON.parse(localStorage.getItem('shopping'));
-        if (shoppingList) {
-            shoppingList.forEach((item, i) => {
-                list.append(new orderItems(item.name, item.count, i).render());
-            });
-        }
-
+    readFromLocal = () => {
+        return JSON.parse(localStorage.getItem('shopping'));
     }
 
     addListeners = () => {
@@ -44,8 +57,6 @@ export default class Popup {
 
         window.addEventListener('keydown', this.handleEvent);
     };
-
-
 
     handleEvent = event => {
         const target = event.target;

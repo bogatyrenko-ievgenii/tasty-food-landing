@@ -1,11 +1,13 @@
-export default class orderItems {
-    constructor (name, count = 1, index = 0) {
+export default class orderItem {
+    constructor (name, count = 1, index) {
         this.name = name;
         this.count = count;
         this.index = index
     }
 
     render = () => {
+        this.saveInLocal();
+
         const item = document.createElement('li');
         item.classList.add('popup__item');
         item.innerHTML = `<span class="popup__item_name">${this.name}</span>
@@ -16,13 +18,15 @@ export default class orderItems {
                             <div id="remove" class="popup__item_action">Remove</div>
                         <div>`;
         item.addEventListener('click', () => this.handleClick(event, item));
-        this.saveInLocalStorge({name: this.name, count: this.count});
+        
         return item;
     }
 
     handleClick = (event, item) => {
         const id = event.target.id;
         const amount = document.querySelectorAll('.popup__item_amount')[this.index];
+
+        console.log(this.index);
 
         if (id === 'decr') {
             if (this.count > 1) this.count -= 1;
@@ -32,32 +36,39 @@ export default class orderItems {
             amount.innerHTML = this.count;
         } else if (id === 'remove') {
             item.remove();
+            this.removeFromLocal();
+
+            return;
         }
 
-        this.saveInLocalStorge({name: this.name, count: this.count});
+        this.saveInLocal();
     }
 
-    saveInLocalStorge = (item) => {
-        const arr = JSON.parse(localStorage.getItem('shopping'));
-        if (!arr) {
-            const newArr = [];
-            newArr.push(item);
-            this.serializing(newArr);
+    saveInLocal = () => {
+        const shopping = JSON.parse(localStorage.getItem('shopping'));
+        if(shopping === null) {
+            const newShopping = {[this.name] : this.count}
+            this.serializing(newShopping);
         } else {
-            let isIn = arr.find(arrItem => {
-                return arrItem.name === item.name;
-            });
-            if (!isIn) {
-                arr.push(item);
-                this.serializing(arr);
-            } else {
-                console.log(isIn);
+            const newShopping = {...shopping, ...{[this.name] : this.count}}
+            this.serializing(newShopping)
+        }
+    }
+
+    removeFromLocal = () => {
+        const shopping = JSON.parse(localStorage.getItem('shopping'));
+        const newShopping = {...shopping};
+        for (let key in shopping) {
+            if (key === this.name) {
+                delete newShopping[this.name]
             }
         }
+        this.serializing(newShopping);
     }
+    
 
-    serializing = (arr) => {
-        const serialized = JSON.stringify(arr);
+    serializing = (obj) => {
+        const serialized = JSON.stringify(obj);
         localStorage.setItem('shopping', serialized);
     }
 
