@@ -42,7 +42,8 @@ export default class Popup {
                                 <h3 class="popup__title">Your order</h3>
                                 <ul class="popup__list">
                                 </ul>
-                            </div>`;
+                                <textarea class="popup__textarea" name="alergen" id="" placeholder="Here you can leave some info about allergens or sth else." rows="3"></textarea>
+                                </div>`;
         this.parent.append(this.popup);
     }
 

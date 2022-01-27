@@ -18,7 +18,7 @@
         background-color: rgba(75, 37, 37, 0.950);
         border-radius: 10px;
         min-height: 50vh;
-        width: 50vmax;
+        max-width: 50vh;
     }
     &__close{
         position: absolute;
@@ -43,15 +43,41 @@
     }
     &__item {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         text-transform: uppercase;
+        padding-bottom: 12px;
+
         &_amount {
             width: 30px;
             text-align: center;
         }
+
         &_action {
             color: #fff;
+            line-height: initial;
+            cursor: pointer;
+            
+            &:nth-child(1) {
+                @include popupOperator;
+            }
+
+            &:nth-child(3) {
+                @include popupOperator;
+            }
+            &_disabled {
+                cursor: default;
+            }
         }
+        &_disabled {
+            display: none;
+        }
+    }
+    &__textarea {
+        padding: 2%;
+        width: 100%;
+        resize: none;
+        background-color: #eee;
+        border-radius: inherit;
     }
 }
 

@@ -1,3 +1,4 @@
+
 export default class orderItem {
     constructor (name, count = 1, index) {
         this.name = name;
@@ -7,7 +8,6 @@ export default class orderItem {
 
     render = () => {
         this.saveInLocal();
-
         const item = document.createElement('li');
         item.classList.add('popup__item');
         item.innerHTML = `<span class="popup__item_name">${this.name}</span>
@@ -17,8 +17,7 @@ export default class orderItem {
                             <div id="incr" class="popup__item_action">+</div>
                             <div id="remove" class="popup__item_action">Remove</div>
                         <div>`;
-        item.addEventListener('click', () => this.handleClick(event, item));
-        
+        this.addListener(item);
         return item;
     }
 
@@ -35,14 +34,19 @@ export default class orderItem {
             if (this.count < 99) this.count += 1;
             amount.innerHTML = this.count;
         } else if (id === 'remove') {
-            item.remove();
+            
             this.removeFromLocal();
-
+            item.classList.add('popup__item_disabled');
             return;
         }
 
         this.saveInLocal();
     }
+
+    addListener = (item) => {
+        item.addEventListener('click', () => this.handleClick(event, item));
+    }
+
 
     saveInLocal = () => {
         const shopping = JSON.parse(localStorage.getItem('shopping'));

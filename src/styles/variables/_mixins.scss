@@ -13,3 +13,12 @@
     gap: 20px;
 }
 
+@mixin popupOperator {
+    background-color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    text-align: center;
+}
+
