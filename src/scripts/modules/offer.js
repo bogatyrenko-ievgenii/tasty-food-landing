@@ -35,7 +35,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     ).render();
                     food[i].insertAdjacentHTML('beforeend', card);
                 }),
-            );
+            ).catch(err => {
+                throw new Error;
+            })
         });
     }
 

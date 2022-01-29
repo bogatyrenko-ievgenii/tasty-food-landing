@@ -75,5 +75,35 @@ export default class Popup {
         this.parent.classList.remove('popup__active');
         this.parent.removeChild(this.popup);
         window.removeEventListener('keydown', this.handleEvent);
+        this.showMessage();
     };
+
+    showMessage = () => {
+        const message = document.createElement('div');
+        message.classList.add('popup__message')
+        message.textContent = 'To complete your order, please, click on pizza ;-)';
+
+        this.parent.append(message)
+        setTimeout(() => {
+            message.remove();
+        }, 3000)
+        
+        let pos = 1;
+        let multNum = 1.2;
+
+        const animation = () => {
+            pos*=multNum;
+            message.style.top = pos + 'px';
+
+            if (pos < 100) {
+                requestAnimationFrame(animation)
+            } else {
+                pos -= 5;
+                multNum = 1.0015;
+                requestAnimationFrame(animation)
+            }
+        }
+
+        requestAnimationFrame(animation);
+    }
 }

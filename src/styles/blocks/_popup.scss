@@ -79,5 +79,25 @@
         background-color: #eee;
         border-radius: inherit;
     }
+    &__message {
+        position: fixed;
+        padding: 5px;
+        width: 150px;
+        top: 40px;
+        right: 20px;
+        color: $mainLight;
+        background-color: $mainColor;
+        border-radius: 5px;
+        &:before {
+            content: ""; 
+            border: solid transparent;
+            position: absolute;    
+            right: 8px;    
+            bottom: 100%;
+            border-bottom-color: $mainColor;
+            border-width: 9px;
+            margin-left: 0;
+        }
+    }
 }
 
