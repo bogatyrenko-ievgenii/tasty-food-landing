@@ -64,6 +64,9 @@
             &:nth-child(3) {
                 @include popupOperator;
             }
+            &:nth-child(4) {
+                margin-left: 20px;
+            }
             &_disabled {
                 cursor: default;
             }

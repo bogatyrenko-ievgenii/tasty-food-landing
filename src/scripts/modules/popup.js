@@ -7,6 +7,7 @@ export default class Popup {
         this.popup = null;
         this.isIn = false;
         this.index = 0;
+        this.note = localStorage.getItem('note');
     }
 
     render = () => {
@@ -35,6 +36,10 @@ export default class Popup {
     };
 
     createPopup = () => {
+        if(this.note === null) {
+            this.note = '';
+        }
+        
         this.popup = document.createElement('div');
         this.popup.classList.add('popup');
         this.popup.innerHTML = `<div class="popup__wrapper">
@@ -42,7 +47,7 @@ export default class Popup {
                                 <h3 class="popup__title">Your order</h3>
                                 <ul class="popup__list">
                                 </ul>
-                                <textarea class="popup__textarea" name="alergen" id="" placeholder="Here you can leave some info about allergens or sth else." rows="3"></textarea>
+                                <textarea class="popup__textarea" name="alergen" placeholder="Here you can leave some info about allergens or sth else." rows="3">${this.note}</textarea>
                                 </div>`;
         this.parent.append(this.popup);
     }
@@ -72,11 +77,17 @@ export default class Popup {
     };
 
     closeModal = () => {
+        this.saveNote();
         this.parent.classList.remove('popup__active');
         this.parent.removeChild(this.popup);
         window.removeEventListener('keydown', this.handleEvent);
         this.showMessage();
     };
+
+    saveNote = () => {
+        const textarea = document.querySelector('.popup__textarea');
+        localStorage.setItem('note', textarea.value);
+    }
 
     showMessage = () => {
         const message = document.createElement('div');
@@ -98,7 +109,7 @@ export default class Popup {
             if (pos < 100) {
                 requestAnimationFrame(animation)
             } else {
-                pos -= 5;
+                pos -= 3;
                 multNum = 1.0015;
                 requestAnimationFrame(animation)
             }

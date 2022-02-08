@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+
 }
 
 .container {
@@ -29,6 +30,7 @@ body {
 @import 'blocks/tabs';
 @import 'blocks/offer';
 @import 'blocks/popup';
+@import 'blocks/discount';
 
 
-@import 'media/media.scss'
+@import 'media/media.scss';
