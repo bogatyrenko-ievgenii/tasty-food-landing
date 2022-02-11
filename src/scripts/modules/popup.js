@@ -98,7 +98,7 @@ export default class Popup {
         setTimeout(() => {
             message.remove();
         }, 3000)
-        
+
         let pos = 1;
         let multNum = 1.2;
 
@@ -116,5 +116,7 @@ export default class Popup {
         }
 
         requestAnimationFrame(animation);
+        
+
     }
 }

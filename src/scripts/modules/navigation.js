@@ -16,6 +16,5 @@ window.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth',
         })
     }
-
 })
 

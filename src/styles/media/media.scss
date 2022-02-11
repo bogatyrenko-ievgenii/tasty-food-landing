@@ -66,8 +66,22 @@
         }
     }
     .discount {
-        
+        &__countdown-block {
+            .countdown {
+                height: 120px;
+                &__digits {
+                    font-size: 40px;
+                }
+                &__block {
+                    height: 85px;
+                }
+                &__name {
+                    font-size: 12px;
+                }
+            }
+        }
     }
+
 
 }
 
@@ -110,6 +124,19 @@
         .wrapper {
             grid-template-columns: minmax(150px, 500px);
             grid-auto-rows: 220px;
+        }
+    }
+    .discount {
+        .container {
+            display: block;
+        }
+        &__text-block {
+            width: 100%;
+        }
+        &__countdown-block {
+            display: block;
+            width: 330px;
+            margin: 20px auto;
         }
     }
 }
