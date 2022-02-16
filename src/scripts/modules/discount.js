@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (newTime <= 0) {
                 stopCountDown();
-                document.querySelector('.discount').remove();
+                // document.querySelector('.discount').remove();
             } else {
                 setClock(newTime);
             }

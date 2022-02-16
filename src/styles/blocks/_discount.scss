@@ -2,6 +2,8 @@
 
 .discount {
     padding: 10% 0;
+    background-color: #aeaeae;
+    color: $mainDark;
     .container {
         display: flex;
     }
@@ -15,8 +17,8 @@
         
         .countdown {
             padding-top: 20px;
-            border-radius: 2px;
-            background-color: #eee;
+            // border-radius: 2px;
+            // background-color: #eee;
             color: $mainLight;
             max-width: 100%;
             height: 160px;
