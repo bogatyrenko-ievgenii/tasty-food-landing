@@ -95,6 +95,7 @@ export default class Popup {
         message.textContent = 'To complete your order, please, click on pizza ;-)';
 
         this.parent.append(message)
+        message.onclick = () => scrollTo({top: 0, behavior: "smooth"});
         setTimeout(() => {
             message.remove();
         }, 3000)

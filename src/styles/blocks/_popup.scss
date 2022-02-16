@@ -91,6 +91,7 @@
         color: $mainLight;
         background-color: $mainColor;
         border-radius: 5px;
+        cursor: pointer;
         &:before {
             content: ""; 
             border: solid transparent;

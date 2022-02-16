@@ -30,7 +30,8 @@
         vertical-align: top;
         margin: 28px 0px 0 10%;        
         width: 200px;
-        a {
+        div {
+            cursor: pointer;
             text-decoration: none;
             font-weight: 700;
             color: $mainLight;

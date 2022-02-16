@@ -16,8 +16,8 @@
         <h1 class="header__title">Tasty Food</h1>
         <a class="header__logo" href="#"><img src="images/icons/pizza.svg" alt="logo" /></a>
         <nav class="nav" id="nav">
-            <a href="#" data-scroll=".offer">Food</a>
-            <a href="#" data-scroll=".footer">Contacts</a>
+            <div data-scroll=".offer">Food</div>
+            <div data-scroll=".footer">Contacts</div>
         </nav>
     </header>
     <aside class="sidepanel">
@@ -111,7 +111,8 @@
             <div class="discount__text-block">
                 <h2 class="discount__title">There is a special discount!</h2>
                 <div class="discount__text">
-                    Thanks to your interest, you get a special discount on any product.  Discount time is limited. Here is the remaining time until the end.
+                    Thanks to your interest, you get a special discount on any product. Discount time is limited. Here
+                    is the remaining time until the end.
                 </div>
             </div>
             <div class="discount__countdown-block">
@@ -137,18 +138,14 @@
         </div>
     </section>
     <section class="slider">
-        <div class="slider">
-            <div class="slider__line">
-                <ul class="slider__list">
-                </ul>
-            </div>
-            <div class="btns">
-                <a class="btn" id="prev">prev</a>
-                <a class="btn" id="next">next</a>
-            </div>
+        <div class="container">
+            <ul class="slider__list"></ul>
+
+            <div class="slider__btn" id="prev"></div>
+            <div class="slider__btn" id="next"></div>
         </div>
     </section>
     <footer class="footer"></footer>
 </body>
 
-</html>
+</html> 

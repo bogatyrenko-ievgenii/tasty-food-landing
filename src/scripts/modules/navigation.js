@@ -1,3 +1,5 @@
+import smoothscroll from 'smoothscroll-polyfill';
+
 window.addEventListener('DOMContentLoaded', () => {
 
     const nav = document.querySelector('#nav');
@@ -15,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
             top: element.offsetTop,
             behavior: 'smooth',
         })
+        smoothscroll.polyfill();
     }
 })
 
