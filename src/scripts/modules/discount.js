@@ -70,14 +70,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (newTime <= 0) {
                 stopCountDown();
-                // document.querySelector('.discount').remove();
             } else {
+                
+                if(localStorage.getItem('promotionEnded')) {
+                    localStorage.setItem('promotionEnded', false);
+                }
+
                 setClock(newTime);
             }
         }, 1000);
 
         const stopCountDown = () => {
             clearInterval(clock);
+            localStorage.setItem('promotionEnded', true);
         }
     }
 
