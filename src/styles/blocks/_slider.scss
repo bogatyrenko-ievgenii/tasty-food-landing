@@ -12,6 +12,7 @@
         position: relative;
         right: 0%;
         transition: .5s;
+        // border: 1px solid black;
     }   
     &__li {
         max-height: 500px;
@@ -24,29 +25,22 @@
     }
     &__btn {
         position: absolute;
-        top: 55%;
+        top: 50%;
+        transform: translateY(-50%);
         cursor: pointer;
-
-        &:before {
-            content: ""; 
-            border: solid transparent;
-            position: absolute;    
-            bottom: 100%;
-            border-bottom-color: rgba(255, 255, 255, 0.288);
-            border-width: 30px;
-            
-        }
+        width: 0;
+        height: 0;
     }
     #prev {
-        left: 20px;
-        &:before {
-            transform: rotate(-90deg);
-        }
+        border-top: 20px solid transparent;
+        border-right: 30px solid rgba(255, 255, 255, 0.781);
+        border-bottom: 20px solid transparent;
+        left: 1%;
     }
     #next {
-        right: 80px;
-        &:before {
-            transform: rotate(90deg);
-        }
+        border-top: 20px solid transparent;
+        border-left: 30px solid rgba(255, 255, 255, 0.781);
+        border-bottom: 20px solid transparent;
+        right: 1%;
     }
 }
