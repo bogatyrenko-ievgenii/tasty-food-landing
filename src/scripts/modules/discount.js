@@ -70,6 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (newTime <= 0) {
                 stopCountDown();
+                document.querySelector('.discount .container').innerHTML = '<h2>Hope you are patient ;-) Next promotion will be able soon!</h2>';
             } else {
                 
                 if(localStorage.getItem('promotionEnded')) {

@@ -24,6 +24,14 @@
             }
         }
     }
+    &__price {
+        position: absolute;
+        top: 11px;
+        right: 70px;
+        color: $mainLight;
+        font-size: x-large;
+        text-align: center;
+    }
     .nav {
         display: inline-flex;
         justify-content: space-between;

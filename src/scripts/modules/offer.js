@@ -5,10 +5,12 @@ import Popup from './popup';
 
 const foodCategories = ['pizza', 'burger', 'sushi'];
 const foodModificator = ['roasted', 'fried', 'fresh', 'home made'];
+const foodPrice = [190, 200, 220, 250];
+let totalPrice = 0;
 
 window.addEventListener('DOMContentLoaded', () => {
     const food = document.querySelectorAll('.offer__food.wrapper');
-    // const drinks = document.querySelector('.offer__drinks');
+
     const offer = document.querySelector('.offer');
 
     const counter = num2 => {
@@ -27,17 +29,19 @@ window.addEventListener('DOMContentLoaded', () => {
     function renderCards () {
         foodCategories.forEach((item, i) => {
             getImages(item).then(hits =>
-                hits.forEach(hit => {
+                hits.forEach((hit, k) => {
                     const card = new Card(
                         hit.largeImageURL,
                         'offer__card',
                         `${item} ${foodModificator[getIncremNum()]}`,
+                        foodPrice[k],
                     ).render();
                     food[i].insertAdjacentHTML('beforeend', card);
+                    
                 }),
-            ).catch(err => {
+            ).catch(() => {
                 throw new Error;
-            })
+            });
         });
     }
 
@@ -55,18 +59,12 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.offer__card').forEach((card, i) => {
 
             if (!target.classList.contains('offer__card_active') && target.nodeName === 'IMG') {
-
                 card.firstElementChild.classList.remove('offer__card_active');
                 parent.classList.add('offer__card_active');
-
             } else if (target === order[i]) {
-
                 onOrderBtn(event, parent.dataset.product);
-
             } else {
-
                 card.firstElementChild.classList.remove('offer__card_active');
-
             }
         });
     });

@@ -1,4 +1,5 @@
 import orderItem from "./orderItem";
+import getAmount from "./totalPrice";
 
 export default class Popup {
     constructor(name) {
@@ -82,6 +83,7 @@ export default class Popup {
         this.parent.removeChild(this.popup);
         window.removeEventListener('keydown', this.handleEvent);
         this.showMessage();
+        getAmount();
     };
 
     saveNote = () => {

@@ -25,7 +25,7 @@ export default class orderItem {
         const id = event.target.id;
         const amount = document.querySelectorAll('.popup__item_amount')[this.index];
 
-        console.log(this.index);
+        // console.log(this.index);
 
         if (id === 'decr') {
             if (this.count > 1) this.count -= 1;
